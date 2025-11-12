@@ -13,6 +13,17 @@
 	color: rgb(31, 195, 255);
 }
 
+.hero-section .subtitle {
+	font-size: 1.2rem;
+	color: rgba(255, 255, 255, 0.6);
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	margin-top: 0.5rem;
+	letter-spacing: 0.05rem;
+	max-width: 800px;
+	text-align: center;
+}
+
 .blur {
 	height: 12rem;
 	width: 12rem;
@@ -32,89 +43,78 @@
 	align-items: center;
 	position: absolute;
 	bottom: 20px;
-	gap: 10px;
+	gap: 12px;
+	flex-wrap: wrap;
+	padding: 0 1rem;
 }
-.github-ribbon {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 250px;
-	height: 50px;
-	text-decoration: none;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	transform: rotate(45deg) translate(50%, 150%);
-	transform-origin: top right;
-	z-index: 9999;
-	background-color: transparent;
-	color: inherit;
-}
-
-/* The glowing panel (matches your floating button style) */
-.github-ribbon div {
-	width: 100%;
-	height: 100%;
-	border-radius: 13px;
-	background-color: var(--primaryBg);
-	box-shadow: 0px -3px 15px 0px var(--primaryHi) inset;
-	color: var(--primaryFg);
-	font-size: 1rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	transition: all 0.25s ease;
-}
-
-/* Glow effect */
-.github-ribbon span {
-	width: 100px;
-	height: 60px;
-	background-color: var(--primaryHi);
-	border-radius: 100%;
-	filter: blur(20px);
-	position: absolute;
-	bottom: -50%;
-	transition: all 0.25s ease;
-}
-
-.github-ribbon:hover > span {
-	bottom: -40%;
-	filter: blur(18px);
-	scale: 1.2;
-}
-
-.github-ribbon:hover > div {
-	transform: translateY(4px);
-}
-
-/* 🔹 Responsive tweak */
-@media screen and (max-width: 600px) {
-	.github-ribbon div {
-		font-size: 0.75rem;
-	}
-}
-
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
 	.hero-section {
-		font-size: 2rem;
+		font-size: 1.8rem;
+		padding: 0 20px;
 	}
 	.hero-section .name {
-		font-size: 4rem;
+		font-size: 3.5rem;
+	}
+
+	.hero-section .subtitle {
+		font-size: 0.9rem;
+		max-width: 90%;
+		margin-top: 0.3rem;
+	}
+
+	.bottom-bar {
+		gap: 8px;
+		bottom: 15px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.hero-section {
+		font-size: 1.5rem;
+	}
+	.hero-section .name {
+		font-size: 2.8rem;
+	}
+
+	.hero-section .subtitle {
+		font-size: 0.75rem;
+		max-width: 95%;
+		line-height: 1.4;
+	}
+
+	.bottom-bar {
+		gap: 8px;
+		bottom: 12px;
+		padding: 0 0.5rem;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.hero-section .name {
+		font-size: 2.5rem;
+	}
+
+	.hero-section .subtitle {
+		font-size: 0.7rem;
+	}
+
+	.bottom-bar {
+		gap: 6px;
+		padding: 0 0.3rem;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.hero-section .name {
+		font-size: 2.2rem;
+	}
+
+	.hero-section .subtitle {
+		font-size: 0.65rem;
 	}
 
 	.bottom-bar {
 		gap: 5px;
-	}
-}
-
-@media screen and (max-width: 300px) {
-	.hero-section .name {
-		font-size: 3rem;
-	}
-
-	.bottom-bar {
-		gap: 2px;
+		padding: 0 0.2rem;
 	}
 }

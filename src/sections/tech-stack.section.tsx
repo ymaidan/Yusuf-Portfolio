@@ -1,15 +1,24 @@
-import { BiLogoTypescript } from 'react-icons/bi';
-import { DiMongodb, DiMsqlServer } from 'react-icons/di';
-import { FaBootstrap, FaNodeJs, FaReact } from 'react-icons/fa';
+import { BiLogoGoLang, BiLogoPython, BiLogoTypescript } from 'react-icons/bi';
+import { DiMsqlServer } from 'react-icons/di';
 import {
-	SiExpress,
-	SiFastify,
-	SiMui,
-	SiMysql,
-	SiShadcnui,
+	FaAws,
+	FaBootstrap,
+	FaDocker,
+	FaGitAlt,
+	FaNodeJs,
+	FaReact,
+	FaRust,
+} from 'react-icons/fa';
+import {
+	SiDjango,
+	SiDotnet,
+	SiSequelize,
+	SiSharp,
+	SiSqlite,
 	SiTailwindcss,
 } from 'react-icons/si';
 import { TbBrandNextjs } from 'react-icons/tb';
+import { VscAzureDevops, VscCode } from 'react-icons/vsc';
 
 import { GlowBox } from '../components/glow-box';
 import { SectionTitle } from '../components/section-title.component';
@@ -19,19 +28,9 @@ const techs = [
 		heading: 'Core Stack I Work With',
 		items: [
 			{
-				title: 'Next JS',
-				icon: <TbBrandNextjs color='rgb(255, 255, 255)' />,
-				color: 'rgba(255, 255, 255, 0.4)',
-			},
-			{
-				title: 'React JS',
-				icon: <FaReact color='rgb(97, 219, 251)' />,
-				color: 'rgb(97, 219, 251, 0.6)',
-			},
-			{
-				title: 'Node JS',
-				icon: <FaNodeJs color='rgb(104, 160, 99)' />,
-				color: 'rgb(104, 160, 99)',
+				title: 'Go',
+				icon: <BiLogoGoLang color='rgb(0, 173, 216)' />,
+				color: 'rgb(0, 173, 216, 0.6)',
 			},
 			{
 				title: 'TypeScript',
@@ -39,29 +38,54 @@ const techs = [
 				color: 'rgba(0, 122, 204, 0.6)',
 			},
 			{
-				title: 'Fastify',
-				icon: <SiFastify color='rgba(255, 255, 255)' />,
+				title: 'Python',
+				icon: <BiLogoPython color='rgb(55, 118, 171)' />,
+				color: 'rgb(55, 118, 171, 0.6)',
+			},
+			{
+				title: 'React JS',
+				icon: <FaReact color='rgb(97, 219, 251)' />,
+				color: 'rgb(97, 219, 251, 0.6)',
+			},
+			{
+				title: 'C#',
+				icon: <SiSharp color='rgb(104, 33, 122)' />,
+				color: 'rgb(104, 33, 122, 0.7)',
+			},
+			{
+				title: 'Rust',
+				icon: <FaRust color='rgb(206, 73, 0)' />,
+				color: 'rgb(206, 73, 0, 0.6)',
+			},
+			{
+				title: 'Next JS',
+				icon: <TbBrandNextjs color='rgb(255, 255, 255)' />,
 				color: 'rgba(255, 255, 255, 0.4)',
 			},
 			{
-				title: 'Express JS',
-				icon: <SiExpress color='rgba(255, 255, 255)' />,
-				color: 'rgba(255, 255, 255, 0.4)',
+				title: 'Node JS',
+				icon: <FaNodeJs color='rgb(104, 160, 99)' />,
+				color: 'rgb(104, 160, 99)',
 			},
 		],
 	},
 	{
-		heading: 'UI & Styling',
+		heading: 'Frameworks & Tools',
 		items: [
 			{
-				title: 'Material UI',
-				icon: <SiMui color='rgb(0, 127, 255)' />,
-				color: 'rgb(0, 127, 255, 0.6)',
+				title: 'Django',
+				icon: <SiDjango color='rgb(9, 46, 32)' />,
+				color: 'rgb(9, 146, 32, 0.8)',
 			},
 			{
-				title: 'ShadCn UI',
-				icon: <SiShadcnui color='rgb(255, 255, 255)' />,
-				color: 'rgba(255, 255, 255, 0.4)',
+				title: 'ASP.NET',
+				icon: <SiDotnet color='rgb(94, 77, 210)' />,
+				color: 'rgb(94, 77, 210, 0.7)',
+			},
+			{
+				title: 'Sequelize.js',
+				icon: <SiSequelize color='rgb(82, 139, 255)' />,
+				color: 'rgb(82, 139, 255, 0.7)',
 			},
 			{
 				title: 'Tailwind CSS',
@@ -73,27 +97,48 @@ const techs = [
 				icon: <FaBootstrap color='rgb(125, 17, 248)' />,
 				color: 'rgb(125, 17, 248, 0.75)',
 			},
-			// Optionally add ShadCn here
+			{
+				title: 'Docker',
+				icon: <FaDocker color='rgb(0, 151, 230)' />,
+				color: 'rgb(0, 151, 230, 0.6)',
+			},
+			{
+				title: 'AWS',
+				icon: <FaAws color='rgb(255, 153, 0)' />,
+				color: 'rgb(255, 153, 0, 0.6)',
+			},
+			{
+				title: 'Git',
+				icon: <FaGitAlt color='rgb(240, 80, 50)' />,
+				color: 'rgb(240, 80, 50, 0.7)',
+			},
+			{
+				title: 'VS Code',
+				icon: <VscCode color='rgb(0, 122, 204)' />,
+				color: 'rgb(0, 122, 204, 0.7)',
+			},
+
+			{
+				title: 'Azure DevOps',
+				icon: <VscAzureDevops color='rgb(0, 120, 215)' />,
+				color: 'rgb(0, 120, 215, 0.7)',
+			},
 		],
 	},
 	{
 		heading: 'Databases I Use',
 		items: [
 			{
-				title: 'MsSQL',
+				title: 'MSSQL Server',
 				icon: <DiMsqlServer color='rgb(230, 50, 42)' />,
 				color: 'rgb(241, 83, 75, 0.5)',
 			},
 			{
-				title: 'MongoDB',
-				icon: <DiMongodb color='rgb(0, 237, 100)' />,
+				title: 'SQLite',
+				icon: <SiSqlite color='rgb(0, 237, 100)' />,
 				color: 'rgb(0, 237, 100, 0.7)',
 			},
-			{
-				title: 'MySQL',
-				icon: <SiMysql color='rgb(0, 122, 158)' />,
-				color: 'rgb(0, 122, 158, 0.75)',
-			},
+
 		],
 	},
 ];

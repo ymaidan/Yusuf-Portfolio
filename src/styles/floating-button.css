@@ -53,9 +53,40 @@
 	transform: translateY(5px);
 }
 
-.floating-btn.first {
+.floating-buttons-top {
+	position: absolute;
 	top: 12%;
-	left: 15%;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 10%;
+	pointer-events: none;
+	z-index: 9999;
+}
+
+.floating-buttons-top > * {
+	pointer-events: auto;
+}
+
+.floating-buttons-bottom {
+	position: absolute;
+	bottom: 20%;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 10%;
+	pointer-events: none;
+	z-index: 9999;
+}
+
+.floating-buttons-bottom > * {
+	pointer-events: auto;
+}
+
+.floating-btn.first {
+	position: relative;
 }
 
 .floating-btn.first > div {
@@ -68,8 +99,7 @@
 }
 
 .floating-btn.sec {
-	bottom: 20%;
-	right: 15%;
+	position: relative;
 }
 
 .floating-btn.sec > button {
@@ -80,4 +110,65 @@
 
 .floating-btn.sec > span {
 	background-color: var(--accentHi);
+}
+
+/* Responsive styles for mobile */
+@media screen and (max-width: 768px) {
+	.floating-buttons-top,
+	.floating-buttons-bottom {
+		flex-direction: column;
+		align-items: center;
+		gap: 15px;
+		padding: 0;
+		position: absolute;
+	}
+
+	.floating-buttons-top {
+		top: 8%;
+		left: 50%;
+		transform: translateX(-50%);
+		width: auto;
+	}
+
+	.floating-buttons-bottom {
+		bottom: 15%;
+		left: 50%;
+		transform: translateX(-50%);
+		width: auto;
+	}
+
+	.floating-btn {
+		position: relative;
+		width: 140px;
+		height: 45px;
+	}
+
+	.floating-btn div {
+		width: 140px;
+		height: 45px;
+		font-size: 0.9rem;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.floating-buttons-top {
+		top: 5%;
+		gap: 10px;
+	}
+
+	.floating-buttons-bottom {
+		bottom: 12%;
+		gap: 10px;
+	}
+
+	.floating-btn {
+		width: 120px;
+		height: 40px;
+	}
+
+	.floating-btn div {
+		width: 120px;
+		height: 40px;
+		font-size: 0.85rem;
+	}
 }
