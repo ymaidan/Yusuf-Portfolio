@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YM Favicon Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .favicon-preview {
+            display: flex;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .preview-item {
+            text-align: center;
+        }
+        canvas {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        button {
+            background: #4F46E5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #4338CA;
+        }
+        .instructions {
+            background: #f0f9ff;
+            border-left: 4px solid #4F46E5;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .mode-toggle {
+            margin: 20px 0;
+        }
+        .mode-toggle label {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 YM Favicon Generator</h1>
+        
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <ol>
+                <li>Choose your color scheme below</li>
+                <li>Click the download buttons to save each size</li>
+                <li>Replace the files in your /public/light/ and /public/dark/ folders</li>
+            </ol>
+        </div>
+
+        <div class="mode-toggle">
+            <label><strong>Color Scheme:</strong></label>
+            <label>
+                <input type="radio" name="mode" value="light" checked> Light Mode (Indigo)
+            </label>
+            <label>
+                <input type="radio" name="mode" value="dark"> Dark Mode (Purple)
+            </label>
+        </div>
+
+        <div class="favicon-preview">
+            <div class="preview-item">
+                <h3>16x16</h3>
+                <canvas id="canvas16" width="16" height="16"></canvas>
+                <br>
+                <button onclick="download('canvas16', 'favicon-16x16.png')">Download</button>
+            </div>
+            
+            <div class="preview-item">
+                <h3>32x32</h3>
+                <canvas id="canvas32" width="32" height="32"></canvas>
+                <br>
+                <button onclick="download('canvas32', 'favicon-32x32.png')">Download</button>
+            </div>
+            
+            <div class="preview-item">
+                <h3>180x180 (Apple)</h3>
+                <canvas id="canvas180" width="180" height="180"></canvas>
+                <br>
+                <button onclick="download('canvas180', 'apple-touch-icon.png')">Download</button>
+            </div>
+            
+            <div class="preview-item">
+                <h3>192x192 (Android)</h3>
+                <canvas id="canvas192" width="192" height="192"></canvas>
+                <br>
+                <button onclick="download('canvas192', 'android-chrome-192x192.png')">Download</button>
+            </div>
+            
+            <div class="preview-item">
+                <h3>512x512 (Android)</h3>
+                <canvas id="canvas512" width="512" height="512"></canvas>
+                <br>
+                <button onclick="download('canvas512', 'android-chrome-512x512.png')">Download</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const colors = {
+            light: '#4F46E5',
+            dark: '#6366F1'
+        };
+
+        function drawFavicon(canvasId, size) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            const mode = document.querySelector('input[name="mode"]:checked').value;
+            const bgColor = colors[mode];
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, size, size);
+            
+            // Draw rounded rectangle background
+            const radius = size * 0.15;
+            ctx.fillStyle = bgColor;
+            ctx.beginPath();
+            ctx.roundRect(0, 0, size, size, radius);
+            ctx.fill();
+            
+            // Draw text
+            ctx.fillStyle = 'white';
+            ctx.font = `bold ${size * 0.5}px Arial, sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('YM', size / 2, size / 2 + size * 0.02);
+        }
+
+        function drawAllFavicons() {
+            drawFavicon('canvas16', 16);
+            drawFavicon('canvas32', 32);
+            drawFavicon('canvas180', 180);
+            drawFavicon('canvas192', 192);
+            drawFavicon('canvas512', 512);
+        }
+
+        function download(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        // Add polyfill for roundRect if needed
+        if (!CanvasRenderingContext2D.prototype.roundRect) {
+            CanvasRenderingContext2D.prototype.roundRect = function(x, y, width, height, radius) {
+                this.moveTo(x + radius, y);
+                this.lineTo(x + width - radius, y);
+                this.quadraticCurveTo(x + width, y, x + width, y + radius);
+                this.lineTo(x + width, y + height - radius);
+                this.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+                this.lineTo(x + radius, y + height);
+                this.quadraticCurveTo(x, y + height, x, y + height - radius);
+                this.lineTo(x, y + radius);
+                this.quadraticCurveTo(x, y, x + radius, y);
+                this.closePath();
+            };
+        }
+
+        // Initial draw
+        drawAllFavicons();
+
+        // Redraw on mode change
+        document.querySelectorAll('input[name="mode"]').forEach(radio => {
+            radio.addEventListener('change', drawAllFavicons);
+        });
+    </script>
+</body>
+</html>
