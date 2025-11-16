@@ -8,16 +8,31 @@ import { TextHover } from '../components/text-hover.component';
 export const InfoSection = () => {
 	return (
 		<div className='hero-section'>
-			<div className='floating-buttons-top'>
+			<div className='floating-buttons-header'>
 				<FloatingButton
-					label='About Me'
-					className='first'
-					href='/#about-me'
+					label='All'
+					className='filter-btn'
+					href='/#'
+				/>
+				<FloatingButton
+					label='Tech'
+					className='filter-btn'
+					href='/#tech-stack'
 				/>
 				<FloatingButton
 					label='Projects'
-					className='first first-right'
+					className='filter-btn'
 					href='/#projects'
+				/>
+				<FloatingButton
+					label='About Me'
+					className='filter-btn'
+					href='/#about-me'
+				/>
+				<FloatingButton
+					label='Gallery'
+					className='filter-btn'
+					href='/#gallery'
 				/>
 			</div>
 			<p>Hi, I am</p>
@@ -30,18 +45,6 @@ export const InfoSection = () => {
 				Cloud Practitioner / ICT Ambassador / Network Engineer / Full-Stack
 				Developer
 			</p>
-			<div className='floating-buttons-bottom'>
-				<FloatingButton
-					label='Tech'
-					className='sec'
-					href='/#tech-stack'
-				/>
-				<FloatingButton
-					label='Gallery'
-					className='sec sec-left'
-					href='/#gallery'
-				/>
-			</div>
 
 			<div className='blur'></div>
 			<div className='bottom-bar'>
